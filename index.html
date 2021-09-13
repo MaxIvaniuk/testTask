@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style/reset.css">
     <link rel="stylesheet" href="./style/css/style.min.css">
 </head>
 <body>
@@ -37,43 +38,115 @@
         <div style="width: 100%"><iframe width="100%" height="700" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Ternopil+(My%20Business%20Name)&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div>
     </section>
 
-    <section id="contact" class="contact ">
-        <div class="contact_wrapper">
-            <div class="">
-                <div class="contact_adress">
-                    <h4 class="contact_adress__header">Туристический информационный центр: </h4>
-                    <ul class="contact_adress__content">
-                        <li>
-                            <p>город Тернополь, 69000</p>
-                        </li>
-                        <li>
-                            <p>проспект Соборный 151</p>
-                        </li>
-                        <li>
-                            <a href="mailto:mycitytic@gmail.com">mycitytic@gmail.com</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="contact_phone">
-                    <h4 class="contact_phone__header">Администрация:</h4>
-                    <ul class="contact_phone__content">
-                        <li>
-                            <a href="tel:+380617097001">+380617097001</a>
-                        </li>
-                        <li>
-                            <a href="tel:+380617097001">+380617097001</a>
-                        </li>
-                    </ul>
-                </div>
+    <section id="contacts" class="contacts ">
+        <div class="contacts_wrapper">
+
+            <div class="contacts_adress ">
+                <h4 class="adress_header">Туристический информационный центр: </h4>
+                <ul class="adress_list">
+                    <li class="adress_list__item">
+                        <p class="adress_list__link">город Тернополь, 69000</p>
+                    </li>
+                    <li class="adress_list__item">
+                        <p class="adress_list__link">проспект Соборный 151</p>
+                    </li>
+                    <li class="adress_list__item">
+                        <a class="adress_list__link" href="mailto:mycitytic@gmail.com">mycitytic@gmail.com</a>
+                    </li>
+                </ul>
             </div>
+
+            <div class="contacts_adress">
+                <h4 class="adress_header">Администрация:</h4>
+                <ul class="adress_list">
+                    <li class="adress_list__item">
+                        <a class="adress_list__link" href="tel:+380617097001">+380617097001</a>
+                    </li>
+                    <li class="adress_list__item">
+                        <a class="adress_list__link" href="tel:+380617097001">+380617097001</a>
+                    </li>
+                </ul>
+            </div>
+
         </div>
     </section>
 
-    <section id="contact_form" class="contact_form">
+    <section id="form" class="container-fluid form">
+        <div class="col-6 d-flex justify-content-center form_wrapper">
+            <form action="#" method="post">
+                <div class="row pt-6 mt-6 justify-content-center">
 
+                    <div class="row justify-content-center">
+                        <div class="col-8 mb-5 form_header">
+                            <h3 class="form_header__content">Напишите нам</h3>
+                        </div>
+                    </div>
+                    <div class="w-100"></div>
+                    <div class="col-5 mb-4">
+                        <div class="form-group contact_form__item">
+                            <label for="formName" class="form-label">Ваше имя</label>
+                            <input type="text" name="" id="formName" class="form-control contact_form__input" required>
+                        </div>
+                    </div>
+                    <div class="col-5 mb-4">
+                        <div class="form-group contact_form__item">
+                            <label for="formPhone" class="form-label">Ваш телефон</label>
+                            <input type="text" name="" id="formPhone" class="form-control contact_form__input" required>
+                        </div>
+                    </div>
+                    <div class="col-10 mb-4">
+                        <div class="form-group contact_form__item">
+                            <label for="formMail" class="form-label">Email</label>
+                            <input type="email" name="" id="formMail" class="form-control contact_form__input" required>
+                        </div>
+                    </div>
+                    <div class="col-10 mb-5">
+                        <div class="form-group contact_form__item">
+                            <label for="formMesage" class="form-label">Сообщение</label>
+                            <textarea name="" id="formMesage" cols="30" rows="10" class="form-control contact_form__textarea" required></textarea>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
     <script src="./js/main.js"></script>
 </body>
 </html>
+
+
+
+        <!-- <div class="form_wrapper">
+
+            <div class="form_header">
+                <h3 class="form_header__content">Напишите нам</h3>
+            </div>
+
+            <div class="form_container">
+                <form class="contact_form" action="#" method="post">
+                    <div class="name_container">
+                        <div class="form_name contact_form__item">
+                            <input type="text" name="" id="formName" class="contact_form__input">
+                            <label for="formName" class="form_label">Ваше имя</label>
+                        </div>
+                        <div class="form_phone contact_form__item">
+                            <input type="text" name="" id="formPhone" class="contact_form__input">
+                            <label for="formPhone" class="contact_form__label">Ваш телефон</label>
+                        </div>
+                    </div>
+                    <div class="form_email contact_form__item">
+                        <input type="email" name="" id="formMail" class="contact_form__input">
+                        <label for="formMail" class="contact_form__label">Email</label>
+                    </div>
+                    <div class="form_message contact_form__item">
+                        <textarea name="" id="formMesage" cols="30" rows="10" class="contact_form__input"></textarea>
+                        <label for="formMesage" class="contact_form__label">Сообщение</label>
+                    </div>
+                    <button class="form__button " id="form-button" type="submit">Send Now</button> 
+                </form>
+            </div>
+
+        </div> -->
