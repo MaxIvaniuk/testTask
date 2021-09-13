@@ -1,0 +1,13 @@
+@import "./fonts";
+@import "./mixin";
+
+$btn-yellow: #ffcd02;
+$main-text: #313344;
+$form-bg: #e6edf1;
+$contact-bg: #f6f8f9;
+
+.contact_wrapper {
+    display: flex;
+    flex-direction: row;
+    margin-top: 100px;
+}
