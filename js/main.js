@@ -96,5 +96,5 @@ new WOW(
         offset:       1,         
         mobile:       true,       
         live:         true        
-        }
+    }
 ).init();
