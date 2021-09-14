@@ -1,13 +1,140 @@
 @import "./fonts";
 @import "./mixin";
 
-$btn-yellow: #ffcd02;
+$yellow: #ffcd02;
+$dark-yellow: #a08000;
 $main-text: #313344;
 $form-bg: #e6edf1;
 $contact-bg: #f6f8f9;
 
+*{
+    transition: all 0.1s;
+    scroll-behavior: smooth;
+    animation-duration: 2s;
+  }
+
 body {
+    font-family: 'Comfortaa';
     background-color: #fff;
+    height: 100%;
+    width: 100%;
+}
+
+.header {
+    font-family: 'Comfortaa';
+    color: $main-text;
+    font-weight: bold;
+
+    .logo_side {
+
+        .logo_heading {
+            font-size: 16px;
+            line-height: 16px;
+            margin-left: 1em;
+        }
+
+        .dropdown_link {
+            text-decoration: none;
+            font-size: 14px;
+            line-height: 16px;
+            text-transform: uppercase;
+            color: $yellow;
+
+            &:hover {
+                color: $dark-yellow;
+            }
+        }
+
+        .weather {
+            &_icon {
+                font-size: 30px;
+            }
+
+            &_temp {
+                font-size: 24px;
+                margin-left: 10px;
+            }
+
+            &_conditions {
+                font-size: 14px;
+                line-height: 32px;
+                font-weight: 500;
+                margin-left: 5px;
+            }
+
+        }
+
+    }
+
+    .burger_side {
+        color: $main-text;
+        position: relative;
+
+        .header_btn {
+            font-family: 'Qanelas';
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 14px;
+            color: #fff;
+            letter-spacing: 1px;
+
+            padding: 15px 25px;
+            border: none;
+            border-radius: 5px;
+            background-color: $yellow;
+
+            &:hover {
+                -webkit-box-shadow: 0px 0px 22px -3px #000000; 
+                box-shadow: 0px 0px 22px -3px #000000;
+            }
+
+            &:active {
+                background: $dark-yellow;
+            }
+
+        }
+
+        .nav_button {
+            border: none;
+            background-color: none;
+            margin-left: 35px;
+            margin-right: 20px;
+        }
+
+        // .nav_bar {
+        //     position: absolute;
+        //     width: 100%;
+        //     height: 30%;
+        // }
+    }
+}
+
+.chat_btn {
+    right: 5%;
+    bottom: 10%;
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+    background-color: rgba($yellow, 0.5);
+
+    &__button {
+        border: none;
+        border-radius: 50%;
+        height: 50px;
+        width: 50px;
+        background-color: $yellow;
+
+        &:hover {
+            transform: scale(1.5);
+            transition: all 0.3s;
+        }
+
+        
+    }
+    &__icon {
+        color: #fff;
+
+    }
 }
 
 .contacts {
@@ -32,9 +159,19 @@ body {
 
       margin-top: 100px; 
       margin-bottom: 90px;
+
+        @include small {
+            flex-direction: column;
+            align-items: center;
+            text-align: center
+        }
     }
 
     &_adress {
+
+        @include small {
+            margin-bottom: 20px;
+        }
 
         .adress_header {
             @include Qanelas;
@@ -60,7 +197,7 @@ body {
                 @include Comfortaa;
                 font-weight: 500;
                 font-size: 16px;
-                line-height: 16px;
+                line-height: 20px;
             }
         }
     }
@@ -104,9 +241,14 @@ body {
             border: none;
             background-color: #fff;
             border-radius: 5px;
+            border: 2px solid rgba(0, 0, 0, 0);
             box-shadow: 0px 5px 17px 2px rgba(34, 60, 80, 0.2);
             -webkit-box-shadow: 0px 5px 17px 2px rgba(34, 60, 80, 0.2);
             -moz-box-shadow: 0px 5px 17px 2px rgba(34, 60, 80, 0.2);
+
+            &:focus {
+                border-color: grey;
+            }
         }
 
         &__textarea {
@@ -117,71 +259,10 @@ body {
             box-shadow: 0px 5px 17px 2px rgba(34, 60, 80, 0.2);
             -webkit-box-shadow: 0px 5px 17px 2px rgba(34, 60, 80, 0.2);
             -moz-box-shadow: 0px 5px 17px 2px rgba(34, 60, 80, 0.2);
+
+            &:focus {
+                border-color: grey;
+            }
         }
     }
-
 }
-
-
-
-
-
-// First form styles
-// .form {   
-//     //     display: flex;
-//     //     flex-direction: row;
-//     //     justify-content: center;
-//     //     margin: 0 auto;
-    
-//         &_wrapper {
-//             // display: flex;
-//             // flex-direction: column;
-//             // justify-content: space-between;
-//             // align-items: center;
-//             background-color: $form-bg;
-//             // padding: 75px;
-//             // width: 580px;
-//         }
-    
-//         &_header {
-    
-//             &__content {
-//                 @include Comfortaa;
-//                 font-weight: bold;
-//                 font-size: 40px;
-//                 line-height: 40px;
-//                 color: $main-text;
-//             }
-//         }
-    
-//     //     &_container {
-//     //         width: 100%;
-    
-//             .contact_form {
-//                 // position: relative;
-//                 // display: flex;
-//                 // flex-direction: column;
-//                 // flex-wrap: wrap;
-    
-//                 // &__item {
-//                 //     position: relative;
-//                 //     display: flex;
-//                 //     flex-direction: column-reverse !important;
-//                 // }
-    
-//                 &__input {
-//                     cursor: pointer;
-//                     border: none;
-//                     background-color: #fff;
-//                     border-radius: 5px;
-//                 }
-    
-//                 // .name_container {
-//                 //     width: 100%;
-//                 //     display: flex;
-//                 //     justify-content: space-between;
-//                 //     flex-direction: row;
-//                 // }
-//             }
-//     //     }
-//     }

@@ -1,7 +1,25 @@
 @mixin Comfortaa {
-    font-family: 'Comfortaa Bold', 'Arial', sans-serif;
+    font-family: 'Comfortaa', 'Arial', sans-serif;
 }
 
 @mixin Qanelas {
     font-family: 'Qanelas', 'Arial', sans-serif;
+}
+
+@mixin small {
+    @media only screen and (max-width: 768px) {
+      @content;
+    }
+}
+
+@mixin tablets {
+    @media only screen and (max-width: 481px) {
+        @content;
+    }
+}
+
+@mixin mobile {
+    @media only screen and (max-width: 320px) {
+        @content;
+    }
 }

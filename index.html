@@ -6,39 +6,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
     <link rel="stylesheet" href="./style/reset.css">
     <link rel="stylesheet" href="./style/css/style.min.css">
 </head>
-<body>
-    <header id="header" class="fixed-top bg-dark">
-        <div class="wrapper">
-            <div>
-                <div class="logo">
-                    <a href="">
-                        <img src="" alt="">
-                        <p></p>
-                    </a>
-                </div>
-                <div class="lang"></div>
-            </div>
-            <div>
-                <div class="button">
-                    <button></button>
-                </div>
-                <div class="navbar">
-                    <nav>
+<body class="position-relative">
+    <header id="header" class="header sticky-top">
 
-                    </nav>
+    <nav class="navbar navbar-light bg-light">
+        <div class="container mx-auto">
+            <div class="logo_side col-lg-6 col-12 mr-1 d-flex flex-row justify-content-start align-items-center">
+                <a href="#" class="col-lg-4 col-4 navbar-brand d-flex align-items-center justify-content-center">
+                    <img class="main_logo" src="./src/img/main-logo.png" alt="main-logo">
+                    <h2 class="logo_heading">Тернопіль</h2>
+                </a>
+                <div class="col-lg-1 col-4 d-flex justify-content-center lang dropdown">
+                    <a class="dropdown-toggle dropdown_link" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Укр</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <li><a class="dropdown-item dropdown_link" href="#">Укр</a></li>
+                      <li><a class="dropdown-item dropdown_link" href="#">Рус</a></li>
+                      <li><a class="dropdown-item dropdown_link" href="#">En</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-4 weather d-flex align-items-center justify-content-end">
+                    <i class="bi bi-cloud-sun weather_icon"></i>
+                    <p class="weather_temp">+24</p>
+                    <p class="weather_conditions">хмарно</p>
+                </div>
+            </div>
+            <div class="burger_side col-lg-6 col-12 d-flex flex-row justify-content-center align-items-center">
+                <a href="#" class="btn header_btn">Перший раз у Тернополі?</a>
+                <button class="navbar-toggler nav_button justify-content-end" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    Меню
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse nav_bar" id="navbarNav">
+                  <ul class="navbar-nav">
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Pricing</a>
+                    </li>
+                  </ul>
                 </div>
             </div>
         </div>
-    </header>
+    </nav>
+</header>
 
-    <section id="maps" class="maps">
+    <section id="maps" class="maps position-relative animate__fadeInUpBig">
         <div style="width: 100%"><iframe width="100%" height="700" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Ternopil+(My%20Business%20Name)&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe></div>
+        <div class="chat_btn position-fixed d-flex justify-content-center align-items-center">
+            <div class="chat_btn__wrapper d-flex justify-content-center align-items-center">
+                <button class="chat_btn__button d-flex justify-content-center align-items-center" type="button">
+                    <i class="chat_btn__icon bi bi-chat-left-text"></i>
+                </button>
+            </div>
+        </div>
     </section>
 
-    <section id="contacts" class="contacts ">
+    <section id="contacts" class="contacts animate__fadeInUpBig">
         <div class="contacts_wrapper">
 
             <div class="contacts_adress ">
@@ -71,10 +103,13 @@
         </div>
     </section>
 
-    <section id="form" class="container-fluid form">
-        <div class="col-6 d-flex justify-content-center form_wrapper">
-            <form action="#" method="post">
-                <div class="row pt-6 mt-6 justify-content-center">
+    <section id="form" class="container form animate__fadeInUpBig">
+        <div class="col-lg-6 col-sm-10 d-flex justify-content-center form_wrapper">
+            <form action="javascript:postData()" method="post" id="contactForm">
+                <div class="row pt-6 mt-6 justify-content-center position-relative">
+                    <div class="col-6 alert alert-danger d-none position-absolute bottom-50 start-25" role="alert">
+                        <p>Введите корректные данные!</p>
+                    </div>
 
                     <div class="row justify-content-center">
                         <div class="col-8 mb-5 form_header">
@@ -82,31 +117,33 @@
                         </div>
                     </div>
                     <div class="w-100"></div>
-                    <div class="col-5 mb-4">
+                    <div class="col-lg-5 col-sm-10 mb-4">
                         <div class="form-group contact_form__item">
                             <label for="formName" class="form-label">Ваше имя</label>
-                            <input type="text" name="" id="formName" class="form-control contact_form__input" required>
+                            <input type="text" name="name" id="formName" class="form-control contact_form__input" required>
                         </div>
                     </div>
-                    <div class="col-5 mb-4">
+                    <div class="col-lg-5 col-sm-10 mb-4">
                         <div class="form-group contact_form__item">
                             <label for="formPhone" class="form-label">Ваш телефон</label>
-                            <input type="text" name="" id="formPhone" class="form-control contact_form__input" required>
+                            <input type="text" name="phone" id="formPhone" class="form-control contact_form__input" required>
                         </div>
                     </div>
-                    <div class="col-10 mb-4">
+                    <div class="col-lg-10 col-sm-10 mb-4">
                         <div class="form-group contact_form__item">
                             <label for="formMail" class="form-label">Email</label>
-                            <input type="email" name="" id="formMail" class="form-control contact_form__input" required>
+                            <input type="email" name="mail" id="formMail" class="form-control contact_form__input" required>
                         </div>
                     </div>
-                    <div class="col-10 mb-5">
+                    <div class="col-lg-10 col-sm-10 mb-5">
                         <div class="form-group contact_form__item">
                             <label for="formMesage" class="form-label">Сообщение</label>
-                            <textarea name="" id="formMesage" cols="30" rows="10" class="form-control contact_form__textarea" required></textarea>
+                            <textarea name="message" id="formMesage" cols="30" rows="10" class="form-control contact_form__textarea" required></textarea>
                         </div>
                     </div>
-
+                    <div class="col-4">
+                        <button class="btn btn-outline-success form__button" id="submitButton" type="submit">Send Now</button> 
+                    </div>
                 </div>
             </form>
         </div>
@@ -119,34 +156,57 @@
 
 
 
-        <!-- <div class="form_wrapper">
 
-            <div class="form_header">
-                <h3 class="form_header__content">Напишите нам</h3>
+
+<!-- <header id="header" class="header sticky-top">
+
+    <nav class="navbar navbar-light bg-light">
+        <div class="container mx-auto d-flex flex-row justify-content-start align-items-center">
+            <div class="logo_side col-6 mr-1 d-flex flex-row justify-content-start align-items-center">
+                
             </div>
+            <div class="burger_side mx-auto d-flex flex-row justify-content-end align-items-center">
+                
+                <a href="#" class="col-4 navbar-brand d-flex align-items-center justify-content-center">
+                    <img class="main_logo" src="./src/img/main-logo.png" alt="main-logo">
+                    <h2 class="logo_heading">Тернопіль</h2>
+                </a>
 
-            <div class="form_container">
-                <form class="contact_form" action="#" method="post">
-                    <div class="name_container">
-                        <div class="form_name contact_form__item">
-                            <input type="text" name="" id="formName" class="contact_form__input">
-                            <label for="formName" class="form_label">Ваше имя</label>
-                        </div>
-                        <div class="form_phone contact_form__item">
-                            <input type="text" name="" id="formPhone" class="contact_form__input">
-                            <label for="formPhone" class="contact_form__label">Ваш телефон</label>
-                        </div>
-                    </div>
-                    <div class="form_email contact_form__item">
-                        <input type="email" name="" id="formMail" class="contact_form__input">
-                        <label for="formMail" class="contact_form__label">Email</label>
-                    </div>
-                    <div class="form_message contact_form__item">
-                        <textarea name="" id="formMesage" cols="30" rows="10" class="contact_form__input"></textarea>
-                        <label for="formMesage" class="contact_form__label">Сообщение</label>
-                    </div>
-                    <button class="form__button " id="form-button" type="submit">Send Now</button> 
-                </form>
+                <div class="col-1 d-flex justify-content-center lang dropdown">
+                    <a class="dropdown-toggle dropdown_link" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Укр</a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <li><a class="dropdown-item dropdown_link" href="#">Укр</a></li>
+                      <li><a class="dropdown-item dropdown_link" href="#">Рус</a></li>
+                      <li><a class="dropdown-item dropdown_link" href="#">En</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-4 weather d-flex align-items-center justify-content-end">
+                    <i class="bi bi-cloud-sun weather_icon"></i>
+                    <p class="weather_temp">+24</p>
+                    <p class="weather_conditions">хмарно</p>
+                </div>
+
+                <a href="#" class="btn header_btn">Перший раз у Тернополі?</a>
+
+                <button class="navbar-toggler nav_button" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    Меню
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Features</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href="#">Pricing</a>
+                      </li>
+                    </ul>
+                  </div>
             </div>
-
-        </div> -->
+        </div>
+    </nav>
+</header> -->

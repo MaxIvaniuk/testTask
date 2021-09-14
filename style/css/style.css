@@ -1,29 +1,124 @@
 @font-face {
   font-family: "Comfortaa";
-  src: local("Comfortaa Bold"), local("Comfortaa-Bold"), url("/src/fonts/Comfortaa-Bold.eot?#iefix") format("embedded-opentype"), url("/src/fonts/Comfortaa-Bold.woff2") format("woff2"), url("/src/fonts/Comfortaa-Bold.woff") format("woff"), url("/src/fonts/Comfortaa-Bold.ttf") format("truetype");
+  src: local("Comfortaa Bold"), url("/src/fonts/Comfortaa-Bold.eot?#iefix") format("embedded-opentype"), url("/src/fonts/Comfortaa-Bold.woff2") format("woff2"), url("/src/fonts/Comfortaa-Bold.woff") format("woff"), url("/src/fonts/Comfortaa-Bold.ttf") format("truetype");
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
   font-family: "Qanelas";
-  src: local("Qanelas Bold"), local("Qanelas-Bold"), url("/src/fonts/Qanelas-Bold.eot?#iefix") format("embedded-opentype"), url("/src/fonts/Qanelas-Bold.woff2") format("woff2"), url("/src/fonts/Qanelas-Bold.woff") format("woff"), url("/src/fonts/Qanelas-Bold.ttf") format("truetype");
+  src: local("Qanelas Bold"), url("/src/fonts/Qanelas-Bold.eot?#iefix") format("embedded-opentype"), url("/src/fonts/Qanelas-Bold.woff2") format("woff2"), url("/src/fonts/Qanelas-Bold.woff") format("woff"), url("/src/fonts/Qanelas-Bold.ttf") format("truetype");
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
   font-family: "Qanelas";
-  src: local("Qanelas Medium"), local("Qanelas-Medium"), url("/src/fonts/Qanelas-Medium.eot?#iefix") format("embedded-opentype"), url("/src/fonts/Qanelas-Medium.woff2") format("woff2"), url("/src/fonts/Qanelas-Medium.woff") format("woff"), url("/src/fonts/Qanelas-Medium.ttf") format("truetype");
+  src: local("Qanelas Medium"), url("/src/fonts/Qanelas-Medium.eot?#iefix") format("embedded-opentype"), url("/src/fonts/Qanelas-Medium.woff2") format("woff2"), url("/src/fonts/Qanelas-Medium.woff") format("woff"), url("/src/fonts/Qanelas-Medium.ttf") format("truetype");
   font-weight: 500;
   font-style: normal;
 }
 @font-face {
   font-family: "Qanelas";
-  src: local("Qanelas Regular"), local("Qanelas-Regular"), url("/src/fonts/Qanelas-Regular.eot?#iefix") format("embedded-opentype"), url("/src/fonts/Qanelas-Regular.woff2") format("woff2"), url("/src/fonts/Qanelas-Regular.woff") format("woff"), url("/src/fonts/Qanelas-Regular.ttf") format("truetype");
+  src: local("Qanelas Regular"), url("/src/fonts/Qanelas-Regular.eot?#iefix") format("embedded-opentype"), url("/src/fonts/Qanelas-Regular.woff2") format("woff2"), url("/src/fonts/Qanelas-Regular.woff") format("woff"), url("/src/fonts/Qanelas-Regular.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
+* {
+  transition: all 0.1s;
+  scroll-behavior: smooth;
+  animation-duration: 2s;
+}
+
 body {
+  font-family: "Comfortaa";
   background-color: #fff;
+  height: 100%;
+  width: 100%;
+}
+
+.header {
+  font-family: "Comfortaa";
+  color: #313344;
+  font-weight: bold;
+}
+.header .logo_side .logo_heading {
+  font-size: 16px;
+  line-height: 16px;
+  margin-left: 1em;
+}
+.header .logo_side .dropdown_link {
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 16px;
+  text-transform: uppercase;
+  color: #ffcd02;
+}
+.header .logo_side .dropdown_link:hover {
+  color: #a08000;
+}
+.header .logo_side .weather_icon {
+  font-size: 30px;
+}
+.header .logo_side .weather_temp {
+  font-size: 24px;
+  margin-left: 10px;
+}
+.header .logo_side .weather_conditions {
+  font-size: 14px;
+  line-height: 32px;
+  font-weight: 500;
+  margin-left: 5px;
+}
+.header .burger_side {
+  color: #313344;
+  position: relative;
+}
+.header .burger_side .header_btn {
+  font-family: "Qanelas";
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #fff;
+  letter-spacing: 1px;
+  padding: 15px 25px;
+  border: none;
+  border-radius: 5px;
+  background-color: #ffcd02;
+}
+.header .burger_side .header_btn:hover {
+  -webkit-box-shadow: 0px 0px 22px -3px #000000;
+  box-shadow: 0px 0px 22px -3px #000000;
+}
+.header .burger_side .header_btn:active {
+  background: #a08000;
+}
+.header .burger_side .nav_button {
+  border: none;
+  background-color: none;
+  margin-left: 35px;
+  margin-right: 20px;
+}
+
+.chat_btn {
+  right: 5%;
+  bottom: 10%;
+  border-radius: 50%;
+  height: 80px;
+  width: 80px;
+  background-color: rgba(255, 205, 2, 0.5);
+}
+.chat_btn__button {
+  border: none;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  background-color: #ffcd02;
+}
+.chat_btn__button:hover {
+  transform: scale(1.5);
+  transition: all 0.3s;
+}
+.chat_btn__icon {
+  color: #fff;
 }
 
 .contacts {
@@ -45,6 +140,18 @@ body {
   margin-top: 100px;
   margin-bottom: 90px;
 }
+@media only screen and (max-width: 768px) {
+  .contacts_wrapper {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .contacts_adress {
+    margin-bottom: 20px;
+  }
+}
 .contacts_adress .adress_header {
   font-family: "Qanelas", "Arial", sans-serif;
   font-weight: bold;
@@ -64,10 +171,10 @@ body {
 .contacts_adress .adress_list__link {
   text-decoration: none;
   color: #313344;
-  font-family: "Comfortaa Bold", "Arial", sans-serif;
+  font-family: "Comfortaa", "Arial", sans-serif;
   font-weight: 500;
   font-size: 16px;
-  line-height: 16px;
+  line-height: 20px;
 }
 
 .form_wrapper {
@@ -80,7 +187,7 @@ body {
   text-align: center;
 }
 .form_header__content {
-  font-family: "Comfortaa Bold", "Arial", sans-serif;
+  font-family: "Comfortaa", "Arial", sans-serif;
   font-weight: bold;
   font-size: 40px;
   line-height: 40px;
@@ -99,9 +206,13 @@ body {
   border: none;
   background-color: #fff;
   border-radius: 5px;
+  border: 2px solid rgba(0, 0, 0, 0);
   box-shadow: 0px 5px 17px 2px rgba(34, 60, 80, 0.2);
   -webkit-box-shadow: 0px 5px 17px 2px rgba(34, 60, 80, 0.2);
   -moz-box-shadow: 0px 5px 17px 2px rgba(34, 60, 80, 0.2);
+}
+.form .contact_form__input:focus {
+  border-color: grey;
 }
 .form .contact_form__textarea {
   cursor: pointer;
@@ -111,4 +222,7 @@ body {
   box-shadow: 0px 5px 17px 2px rgba(34, 60, 80, 0.2);
   -webkit-box-shadow: 0px 5px 17px 2px rgba(34, 60, 80, 0.2);
   -moz-box-shadow: 0px 5px 17px 2px rgba(34, 60, 80, 0.2);
+}
+.form .contact_form__textarea:focus {
+  border-color: grey;
 }
