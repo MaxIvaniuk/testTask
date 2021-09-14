@@ -64,9 +64,9 @@ body {
 }
 .header .logo_side .weather_conditions {
   font-size: 14px;
-  line-height: 32px;
+  line-height: 14px;
   font-weight: 500;
-  margin-left: 5px;
+  margin-left: 10px;
 }
 .header .burger_side {
   color: #313344;
@@ -91,11 +91,25 @@ body {
 .header .burger_side .header_btn:active {
   background: #a08000;
 }
+@media only screen and (max-width: 481px) {
+  .header .burger_side .header_btn {
+    font-size: 12px;
+    padding: 10px 20px;
+  }
+}
 .header .burger_side .nav_button {
   border: none;
   background-color: none;
   margin-left: 35px;
   margin-right: 20px;
+}
+.header .burger_side .nav_bar {
+  position: absolute;
+  background-color: #f6f8f9;
+  flex-wrap: wrap;
+  width: 50%;
+  top: 135%;
+  right: -10%;
 }
 
 .chat_btn {
@@ -167,6 +181,9 @@ body {
   list-style: none;
   margin-bottom: 20px;
   color: #313344;
+}
+.contacts_adress .adress_list__item:hover {
+  transform: scale(1.05);
 }
 .contacts_adress .adress_list__link {
   text-decoration: none;

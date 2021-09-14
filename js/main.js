@@ -5,7 +5,10 @@ const numReg = /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){10,14}(\s*)?$/,
       nameReg = /^[а-яА-ЯёЁa-zA-Z]+$/,
       messgReg = /^[а-яА-ЯёЁa-zA-Z0-9]+$/,
       form = document.getElementById('contactForm'),
-      alertMsg = document.querySelector('.alert');
+      alertMsg = document.querySelector('.alert'),
+      temp = document.querySelector('.weather_temp'),
+      conditions = document.querySelector('.weather_conditions');
+
 
 let userName = document.querySelector('#formName'),
     userPhone = document.querySelector('#formPhone'),
@@ -68,24 +71,30 @@ function postData() {
     });
 }
 
+//weather forecast
 
-// also form sending with XML request
-// form.onsubmit = (e) => {
-//     e.preventDefault();
-//     let formData = new FormData(form);
-//     let xhr = new XMLHttpRequest();
-//     xhr.open("POST", form.action, true);
+let weatherUrl = 'http://api.openweathermap.org/data/2.5/weather?lat=49.553516&lon=25.594767&units=metric&lang=ua&appid=2a99b17f27fec118e2c633e3b869fab7'
 
-//     xhr.onload = (e) => {
-//       if (xhr.status === 200) {
-               
-//       } else {
-//         alert('Something went wrong please try again');
-//       }
-//     };
-  
-//     xhr.send(formData);
-    // setTimeout(function(){
-    //   form.reset();
-    // },3500);
-// }
+fetch(weatherUrl)
+    .then(response => response.json())
+    .then(function(data){ 
+        console.log(data);
+        temp.innerHTML = `+${Math.round(data.main.temp)}`;
+        conditions.innerHTML = data.weather[0].description; 
+    })
+    .catch(() => {
+        console.log('error')
+    })
+
+
+    // init animation
+
+new WOW(
+    {
+        boxClass:     'wow',      
+        animateClass: 'animated', 
+        offset:       1,         
+        mobile:       true,       
+        live:         true        
+        }
+).init();
